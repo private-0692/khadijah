@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Khadijah Search</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background: #f8f9fa;
+    color: #202124;
+  }
+  header {
+    background: #fff;
+    border-bottom: 1px solid #e0e0e0;
+    padding: 14px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .logo { font-size: 17px; font-weight: 600; color: #1a73e8; }
+  .clock { font-size: 13px; color: #5f6368; font-variant-numeric: tabular-nums; }
+  main {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 36px 18px 50px;
+  }
+  h1 {
+    font-size: 26px;
+    font-weight: 500;
+    text-align: center;
+    margin-bottom: 6px;
+  }
+  .subtitle {
+    text-align: center;
+    color: #5f6368;
+    margin-bottom: 36px;
+    font-size: 14px;
+  }
+  h2 {
+    font-size: 13px;
+    font-weight: 600;
+    color: #5f6368;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+    margin: 28px 0 12px;
+  }
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+    gap: 10px;
+  }
+  a.card {
+    display: block;
+    background: #fff;
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+    padding: 16px 14px;
+    text-decoration: none;
+    color: #202124;
+    transition: border-color 0.15s, box-shadow 0.15s;
+  }
+  a.card:hover {
+    border-color: #1a73e8;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+  }
+  a.card strong {
+    display: block;
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 2px;
+  }
+  a.card span {
+    font-size: 12px;
+    color: #5f6368;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo">Khadijah Search</div>
+  <div class="clock" id="clock"></div>
+</header>
+
+<main>
+  <h1>Khadijah Search</h1>
+  <p class="subtitle">Sitios con más probabilidad de funcionar</p>
+
+  <h2>Juegos que suelen dejar pasar</h2>
+  <div class="grid">
+    <a class="card" href="https://play2048.co">
+      <strong>2048</strong>
+      <span>Puzzle</span>
+    </a>
+    <a class="card" href="https://chromedino.com">
+      <strong>Chrome Dino</strong>
+      <span>Dinosaurio</span>
+    </a>
+    <a class="card" href="https://tetris.com/play-tetris">
+      <strong>Tetris</strong>
+      <span>Clásico</span>
+    </a>
+    <a class="card" href="https://scratch.mit.edu">
+      <strong>Scratch</strong>
+      <span>Crear y jugar</span>
+    </a>
+    <a class="card" href="https://lichess.org">
+      <strong>Lichess</strong>
+      <span>Ajedrez</span>
+    </a>
+    <a class="card" href="https://littlealchemy2.com">
+      <strong>Little Alchemy 2</strong>
+      <span>Combinar</span>
+    </a>
+    <a class="card" href="https://www.coolmathgames.com">
+      <strong>Coolmath Games</strong>
+      <span>Educativos</span>
+    </a>
+    <a class="card" href="https://code.org">
+      <strong>Code.org</strong>
+      <span>Programar</span>
+    </a>
+    <a class="card" href="https://blockly.games">
+      <strong>Blockly Games</strong>
+      <span>Programación</span>
+    </a>
+    <a class="card" href="https://arcade.makecode.com">
+      <strong>MakeCode Arcade</strong>
+      <span>Crear juegos</span>
+    </a>
+    <a class="card" href="https://www.mathplayground.com">
+      <strong>Math Playground</strong>
+      <span>Matemáticas</span>
+    </a>
+    <a class="card" href="https://www.jigsawexplorer.com">
+      <strong>Jigsaw Explorer</strong>
+      <span>Rompecabezas</span>
+    </a>
+  </div>
+
+  <h2>Otros (pueden estar bloqueados)</h2>
+  <div class="grid">
+    <a class="card" href="https://poki.com">
+      <strong>Poki</strong>
+      <span>Juegos</span>
+    </a>
+    <a class="card" href="https://www.crazygames.com">
+      <strong>CrazyGames</strong>
+      <span>Juegos</span>
+    </a>
+    <a class="card" href="https://agar.io">
+      <strong>Agar.io</strong>
+      <span>Multijugador</span>
+    </a>
+    <a class="card" href="https://slither.io">
+      <strong>Slither.io</strong>
+      <span>Multijugador</span>
+    </a>
+    <a class="card" href="https://smashkarts.io">
+      <strong>Smash Karts</strong>
+      <span>Carreras</span>
+    </a>
+    <a class="card" href="https://www.youtube.com">
+      <strong>YouTube</strong>
+      <span>Videos</span>
+    </a>
+    <a class="card" href="https://open.spotify.com">
+      <strong>Spotify</strong>
+      <span>Música</span>
+    </a>
+  </div>
+</main>
+
+<script>
+  const el = document.getElementById('clock');
+  const fmt = new Intl.DateTimeFormat('es-US', { hour: 'numeric', minute: '2-digit', hour12: true });
+  function update() { el.textContent = fmt.format(new Date()); }
+  update();
+  setInterval(update, 1000);
+</script>
+</body>
+</html>
