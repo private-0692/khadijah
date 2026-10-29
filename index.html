@@ -5,180 +5,93 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Khadijah Search</title>
 <style>
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-  body {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-    background: #f8f9fa;
-    color: #202124;
-  }
-  header {
-    background: #fff;
-    border-bottom: 1px solid #e0e0e0;
-    padding: 14px 20px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-  .logo { font-size: 17px; font-weight: 600; color: #1a73e8; }
-  .clock { font-size: 13px; color: #5f6368; font-variant-numeric: tabular-nums; }
-  main {
-    max-width: 900px;
-    margin: 0 auto;
-    padding: 36px 18px 50px;
-  }
-  h1 {
-    font-size: 26px;
-    font-weight: 500;
-    text-align: center;
-    margin-bottom: 6px;
-  }
-  .subtitle {
-    text-align: center;
-    color: #5f6368;
-    margin-bottom: 36px;
-    font-size: 14px;
-  }
-  h2 {
-    font-size: 13px;
-    font-weight: 600;
-    color: #5f6368;
-    text-transform: uppercase;
-    letter-spacing: 0.4px;
-    margin: 28px 0 12px;
-  }
-  .grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
-    gap: 10px;
-  }
-  a.card {
-    display: block;
-    background: #fff;
-    border: 1px solid #e0e0e0;
-    border-radius: 10px;
-    padding: 16px 14px;
-    text-decoration: none;
-    color: #202124;
-    transition: border-color 0.15s, box-shadow 0.15s;
-  }
-  a.card:hover {
-    border-color: #1a73e8;
-    box-shadow: 0 1px 4px rgba(0,0,0,0.08);
-  }
-  a.card strong {
-    display: block;
-    font-size: 14px;
-    font-weight: 600;
-    margin-bottom: 2px;
-  }
-  a.card span {
-    font-size: 12px;
-    color: #5f6368;
-  }
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;background:#f0f2f5;color:#202124;height:100vh;display:flex;flex-direction:column}
+header{background:#fff;border-bottom:1px solid #e0e0e0;padding:12px 16px;display:flex;align-items:center;justify-content:space-between;flex-shrink:0}
+.logo{font-weight:700;font-size:16px;color:#1a73e8}
+.clock{font-size:13px;color:#5f6368;font-variant-numeric:tabular-nums}
+.main{flex:1;display:flex;overflow:hidden}
+.sidebar{width:240px;background:#fff;border-right:1px solid #e0e0e0;overflow-y:auto;padding:12px;flex-shrink:0}
+.sidebar h3{font-size:12px;text-transform:uppercase;color:#5f6368;margin:12px 0 8px;letter-spacing:.3px}
+.item{display:block;padding:10px 12px;border-radius:8px;text-decoration:none;color:#202124;font-size:14px;margin-bottom:2px;cursor:pointer;border:0;background:none;width:100%;text-align:left}
+.item:hover{background:#e8f0fe;color:#1a73e8}
+.content{flex:1;display:flex;flex-direction:column;background:#fff}
+.bar{padding:8px 12px;border-bottom:1px solid #e0e0e0;display:flex;align-items:center;gap:8px;background:#f8f9fa}
+.bar button{padding:7px 12px;border:1px solid #dadce0;border-radius:6px;background:#fff;cursor:pointer;font-size:13px}
+.bar button:hover{background:#f1f3f4}
+#title{flex:1;font-size:14px;font-weight:600;color:#5f6368}
+iframe{flex:1;width:100%;border:0;background:#fff}
+.hint{padding:8px 12px;font-size:12px;color:#5f6368;background:#f8f9fa;border-bottom:1px solid #e0e0e0}
+@media(max-width:700px){.sidebar{width:180px}}
 </style>
 </head>
 <body>
-
 <header>
   <div class="logo">Khadijah Search</div>
-  <div class="clock" id="clock"></div>
+  <div class="clock" id="clock">--:--</div>
 </header>
 
-<main>
-  <h1>Khadijah Search</h1>
-  <p class="subtitle">Sitios con más probabilidad de funcionar</p>
+<div class="main">
+  <div class="sidebar">
+    <h3>Juegos</h3>
+    <button class="item" data-url="https://play2048.co" data-title="2048">2048</button>
+    <button class="item" data-url="https://chromedino.com" data-title="Chrome Dino">Chrome Dino</button>
+    <button class="item" data-url="https://tetris.com/play-tetris" data-title="Tetris">Tetris</button>
+    <button class="item" data-url="https://scratch.mit.edu" data-title="Scratch">Scratch</button>
+    <button class="item" data-url="https://lichess.org" data-title="Lichess">Lichess</button>
+    <button class="item" data-url="https://littlealchemy2.com" data-title="Little Alchemy 2">Little Alchemy 2</button>
+    <button class="item" data-url="https://www.coolmathgames.com" data-title="Coolmath Games">Coolmath Games</button>
+    <button class="item" data-url="https://code.org" data-title="Code.org">Code.org</button>
+    <button class="item" data-url="https://blockly.games" data-title="Blockly Games">Blockly Games</button>
+    <button class="item" data-url="https://poki.com" data-title="Poki">Poki</button>
+    <button class="item" data-url="https://www.crazygames.com" data-title="CrazyGames">CrazyGames</button>
+    <button class="item" data-url="https://agar.io" data-title="Agar.io">Agar.io</button>
+    <button class="item" data-url="https://slither.io" data-title="Slither.io">Slither.io</button>
+    <button class="item" data-url="https://smashkarts.io" data-title="Smash Karts">Smash Karts</button>
 
-  <h2>Juegos que suelen dejar pasar</h2>
-  <div class="grid">
-    <a class="card" href="https://play2048.co">
-      <strong>2048</strong>
-      <span>Puzzle</span>
-    </a>
-    <a class="card" href="https://chromedino.com">
-      <strong>Chrome Dino</strong>
-      <span>Dinosaurio</span>
-    </a>
-    <a class="card" href="https://tetris.com/play-tetris">
-      <strong>Tetris</strong>
-      <span>Clásico</span>
-    </a>
-    <a class="card" href="https://scratch.mit.edu">
-      <strong>Scratch</strong>
-      <span>Crear y jugar</span>
-    </a>
-    <a class="card" href="https://lichess.org">
-      <strong>Lichess</strong>
-      <span>Ajedrez</span>
-    </a>
-    <a class="card" href="https://littlealchemy2.com">
-      <strong>Little Alchemy 2</strong>
-      <span>Combinar</span>
-    </a>
-    <a class="card" href="https://www.coolmathgames.com">
-      <strong>Coolmath Games</strong>
-      <span>Educativos</span>
-    </a>
-    <a class="card" href="https://code.org">
-      <strong>Code.org</strong>
-      <span>Programar</span>
-    </a>
-    <a class="card" href="https://blockly.games">
-      <strong>Blockly Games</strong>
-      <span>Programación</span>
-    </a>
-    <a class="card" href="https://arcade.makecode.com">
-      <strong>MakeCode Arcade</strong>
-      <span>Crear juegos</span>
-    </a>
-    <a class="card" href="https://www.mathplayground.com">
-      <strong>Math Playground</strong>
-      <span>Matemáticas</span>
-    </a>
-    <a class="card" href="https://www.jigsawexplorer.com">
-      <strong>Jigsaw Explorer</strong>
-      <span>Rompecabezas</span>
-    </a>
+    <h3>Video / Música</h3>
+    <button class="item" data-url="https://www.youtube.com" data-title="YouTube">YouTube</button>
+    <button class="item" data-url="https://open.spotify.com" data-title="Spotify">Spotify</button>
+    <button class="item" data-url="https://music.youtube.com" data-title="YouTube Music">YouTube Music</button>
   </div>
 
-  <h2>Otros (pueden estar bloqueados)</h2>
-  <div class="grid">
-    <a class="card" href="https://poki.com">
-      <strong>Poki</strong>
-      <span>Juegos</span>
-    </a>
-    <a class="card" href="https://www.crazygames.com">
-      <strong>CrazyGames</strong>
-      <span>Juegos</span>
-    </a>
-    <a class="card" href="https://agar.io">
-      <strong>Agar.io</strong>
-      <span>Multijugador</span>
-    </a>
-    <a class="card" href="https://slither.io">
-      <strong>Slither.io</strong>
-      <span>Multijugador</span>
-    </a>
-    <a class="card" href="https://smashkarts.io">
-      <strong>Smash Karts</strong>
-      <span>Carreras</span>
-    </a>
-    <a class="card" href="https://www.youtube.com">
-      <strong>YouTube</strong>
-      <span>Videos</span>
-    </a>
-    <a class="card" href="https://open.spotify.com">
-      <strong>Spotify</strong>
-      <span>Música</span>
-    </a>
+  <div class="content">
+    <div class="bar">
+      <button id="homeBtn">Inicio</button>
+      <span id="title">Elige algo de la izquierda</span>
+    </div>
+    <div class="hint" id="hint">Todo se abre aquí dentro. Algunos sitios (YouTube, Spotify, etc.) bloquean esta vista por seguridad.</div>
+    <iframe id="frame" src="about:blank" allow="autoplay; fullscreen; gamepad" allowfullscreen></iframe>
   </div>
-</main>
+</div>
 
 <script>
-  const el = document.getElementById('clock');
-  const fmt = new Intl.DateTimeFormat('es-US', { hour: 'numeric', minute: '2-digit', hour12: true });
-  function update() { el.textContent = fmt.format(new Date()); }
-  update();
-  setInterval(update, 1000);
+(() => {
+  const clock = document.getElementById('clock');
+  const fmt = new Intl.DateTimeFormat('es-US', {hour:'numeric',minute:'2-digit',hour12:true});
+  function tick(){ clock.textContent = fmt.format(new Date()); }
+  tick(); setInterval(tick, 1000);
+
+  const frame = document.getElementById('frame');
+  const title = document.getElementById('title');
+  const hint = document.getElementById('hint');
+
+  document.querySelectorAll('.item').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const url = btn.dataset.url;
+      const name = btn.dataset.title;
+      frame.src = url;
+      title.textContent = name;
+      hint.textContent = 'Cargando ' + name + '... Si sale bloqueado, ese sitio no permite verse dentro de otra página.';
+    });
+  });
+
+  document.getElementById('homeBtn').addEventListener('click', () => {
+    frame.src = 'about:blank';
+    title.textContent = 'Elige algo de la izquierda';
+    hint.textContent = 'Todo se abre aquí dentro. Algunos sitios bloquean esta vista por seguridad.';
+  });
+})();
 </script>
 </body>
 </html>
